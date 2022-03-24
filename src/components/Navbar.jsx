@@ -20,7 +20,7 @@ const NavBar = () => {
       </div>
       <Menu theme="dark">
         <Menu.Item icon={<HomeOutlined />}>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item icon={<FundOutlined />}>
           <Link to="/cryptocurrencies">CryptoCurrencies</Link>
