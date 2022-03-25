@@ -5,7 +5,7 @@ import { Row, Col, Card, Input } from "antd";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
 const Cryptocurrencies = ({ simplified }) => {
-  const count = simplified ? 10 : 1000;
+  const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptosList?.data?.coins);
   const [searchItem, setSearchItem] = useState("");
@@ -18,12 +18,15 @@ const Cryptocurrencies = ({ simplified }) => {
   if (isFetching) return "Loding...";
   return (
     <>
-      <div className="search-crypto">
-        <Input
-          placeholder="Search CryptoCurrency"
-          onChange={(e) => setSearchItem(e.target.value)}
-        />
-      </div>
+      {!simplified && (
+        <div className="search-crypto">
+          <Input
+            placeholder="Search CryptoCurrency"
+            onChange={(e) => setSearchItem(e.target.value)}
+          />
+        </div>
+      )}
+
       <Row gutter={[32, 32]} className="crypto-card-container">
         {cryptos?.map((currency) => (
           <Col
