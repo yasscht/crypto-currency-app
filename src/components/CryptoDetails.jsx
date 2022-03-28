@@ -113,6 +113,26 @@ const CryptoDetails = () => {
           <Option key={date}>{date}</Option>
         ))}
       </Select>
+      {/*Line chart*/}
+      <Col className="stats-container">
+        <Col className="coin-value-statistics">
+          <Col className="coin-value=statistics-heading">
+            <Title level={3} className="coin-details">
+              {cryptoDetails.name} Value statistics
+            </Title>
+            <p>An overview showing the details of {cryptoDetails.name}</p>
+          </Col>
+          {stats.map(({ icon, title, value }) => (
+            <Col className="coin-stats">
+              <Col className="coin-stats-name">
+                <Text>{icon}</Text>
+                <Text>{title}</Text>
+              </Col>
+              <Col className="stats">{value}</Col>
+            </Col>
+          ))}
+        </Col>
+      </Col>
     </Col>
   );
 };
