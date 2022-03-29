@@ -2,7 +2,7 @@ import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 import { useState } from "react";
 import moment from "moment";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
-
+import Loader from "./Loader";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 const News = ({ simplified }) => {
   const { Text, Title } = Typography;
@@ -16,8 +16,8 @@ const News = ({ simplified }) => {
 
   const demoImage =
     "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
-  if (isFetching) return "Loading...";
-  console.log("news", cryptoNews);
+  if (isFetching) return <Loader />;
+
   return (
     <>
       <Row gutter={[24, 24]}>

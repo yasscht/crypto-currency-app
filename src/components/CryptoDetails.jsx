@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import millify from "millify";
 import { Col, Row, Typography, Select } from "antd";
 import LineChart from "./LineChart";
+import Loader from "./Loader";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -99,7 +100,7 @@ const CryptoDetails = () => {
       icon: <ExclamationCircleOutlined />,
     },
   ];
-  if (isFetching) return "isLoading...";
+  if (isFetching) return <Loader />;
   return (
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
